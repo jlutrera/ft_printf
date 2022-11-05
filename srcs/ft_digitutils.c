@@ -24,7 +24,7 @@ int	ft_zeros(t_flags flags, char c, int len)
 	int	zeros;
 	int	i;
 
-	if (flags.zero && (flags.prec == -1) && c != '+')
+	if (flags.zero && (flags.prec == -1))
 		flags.zero = true;
 	else
 		flags.zero = false;
@@ -50,7 +50,7 @@ int	ft_spaces(t_flags flags, char c, int len)
 	int	spaces;
 	int	i;
 
-	if (flags.zero && (flags.prec == -1) && c != '+')
+	if (flags.zero && (flags.prec == -1))
 		flags.zero = true;
 	else
 		flags.zero = false;
@@ -74,7 +74,7 @@ int	ft_spaces(t_flags flags, char c, int len)
 int	put0x(char *s, t_flags flags)
 {
 	if ((flags.type == 'x' || flags.type == 'X')
-		&& flags.sharp && *s != '0')
+		&& flags.sharp && *s != '\0' && *s != '0')
 		return (ft_putchar(flags.type));
 	if (flags.type == 'p')
 		return (ft_putchar('x'));
@@ -104,6 +104,5 @@ int	putdigit(char *s, t_flags flags, char c, int len)
 		i += ft_zeros(flags, c, len);
 		i += ft_putstr(s);
 	}
-	free(s);
 	return (i);
 }

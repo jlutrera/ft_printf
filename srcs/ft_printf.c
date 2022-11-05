@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jutrera- <jutrera-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jutrera- <jutrera-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:40:13 by jutrera-          #+#    #+#             */
-/*   Updated: 2022/10/29 23:26:57 by jutrera-         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:43:30 by jutrera-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	process_flags2(char *s, va_list ap)
 	if (flags.type == 'c')
 		return (ft_putchar_bonus((char)(va_arg(ap, int)), flags));
 	else if (flags.type == '%')
-		return (ft_putchar('%'));
+		return (ft_putchar_bonus('%', flags));
 	else if (flags.type == 's')
 		return (ft_putstr_bonus(va_arg(ap, char *), flags));
 	else if (flags.type == 'i' || flags.type == 'd')

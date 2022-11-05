@@ -35,7 +35,7 @@ int	ft_putpointer(void *pointer, t_flags flags)
 	unsigned long	p;
 
 	if (!pointer)
-		return (ft_putstr_bonus("(nil)", flags));   // solo para Windows???????
+		return (ft_putstr_bonus("0x0", flags));
 	p = (unsigned long)pointer;
 	len = ulen_number(p, 16);
 	s = (char *)malloc((len + 1) * sizeof(char));
@@ -48,5 +48,7 @@ int	ft_putpointer(void *pointer, t_flags flags)
 		s[i] = g_base[p % 16];
 		p /= 16;
 	}
-	return (putdigit(s, flags, '0', len));
+	i = putdigit(s, flags, '0', len);
+	free(s);
+	return (i);
 }

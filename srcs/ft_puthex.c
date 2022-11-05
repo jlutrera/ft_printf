@@ -14,7 +14,7 @@
 
 int	puthex(char *s, t_flags flags, int len)
 {
-	if (*s == '0' && (flags.width == 0 || flags.prec == 0) && !flags.sharp)
+	if (*s == '0' && (flags.width == 0 || flags.prec == 0))
 	{
 		*s = '\0';
 		return (putdigit(s, flags, 0, 0));
@@ -48,5 +48,7 @@ int	ft_puthex(unsigned int nb, t_flags flags)
 			s[i] -= 32;
 		nb /= 16;
 	}
-	return (puthex(s, flags, len));
+	i = puthex(s, flags, len);
+	free(s);
+	return (i);
 }

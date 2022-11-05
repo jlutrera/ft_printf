@@ -58,7 +58,7 @@ int	ft_putstr_bonus(char *s, t_flags flags)
 {
 	int		n;
 
-	if (!s && (flags.prec == -1 || flags.prec > 5))
+	if (!s)
 		return (ft_putstr_bonus("(null)", flags));
 	n = len_str(s);
 	if (flags.prec == -1 || flags.prec > n)

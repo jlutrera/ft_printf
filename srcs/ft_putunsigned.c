@@ -17,6 +17,7 @@ int	ft_putunsigned(unsigned long n, t_flags flags)
 	char	*s;
 	int		len;
 	char	c;
+	int		i;
 
 	c = 0;
 	if (flags.add)
@@ -29,5 +30,7 @@ int	ft_putunsigned(unsigned long n, t_flags flags)
 	if (*s == '0' && flags.prec == 0)
 		*s = '\0';
 	len = len_str(s);
-	return (putdigit(s, flags, c, len));
+	i = putdigit(s, flags, c, len);
+	free(s);
+	return (i);
 }
